@@ -20,7 +20,10 @@ function convertTableToCSV(table) {
   rows.forEach((row) => {
     const rowData = []
     Array.from(row.children).forEach((cell) => {
-      const cellText = cell.textContent.trim().replace(/\s\s+/g, " ")
+      let cellText = cell.textContent.trim().replace(/\s\s+/g, " ")
+      if (cellText.includes('"') || cellText.includes(',') || cellText.includes('\n')) {
+        cellText = '"' + cellText.replace(/"/g, '""') + '"'
+      }
       rowData.push(cellText)
     })
     csvData.push(rowData.join(","))
