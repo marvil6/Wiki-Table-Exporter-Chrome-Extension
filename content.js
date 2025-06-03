@@ -21,6 +21,7 @@ function convertTableToCSV(table) {
     const rowData = []
     Array.from(row.children).forEach((cell) => {
       let cellText = cell.textContent.trim().replace(/\s\s+/g, " ")
+      cellText = cellText.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
       if (cellText.includes('"') || cellText.includes(',') || cellText.includes('\n')) {
         cellText = '"' + cellText.replace(/"/g, '""') + '"'
       }
