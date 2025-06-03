@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
     if (tableIndex >= 0 && tableIndex < tables.length) {
       const csvContent = convertTableToCSV(tables[tableIndex])
-      downloadCSV(csvContent, "table_" + (tableIndex + 1) + ".csv")
+      downloadCSV(csvContent, document.title + " - Table" + (tableIndex + 1) + ".csv")
     }
   }
 })
