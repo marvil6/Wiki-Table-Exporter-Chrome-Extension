@@ -70,3 +70,8 @@ button:active {
   transform: translateY(2px);
   transition-duration: 0.35s;
 }
+
+button.with-urls {
+    background-color: #1e6e84;
+    box-shadow: rgba(38, 144, 173, 0.2) 0 6px 12px;
+}
